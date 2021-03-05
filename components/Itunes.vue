@@ -5,7 +5,6 @@
             <form @submit.prevent="ituneSubmit()">
                 <v-text-field 
                 dense
-                :label="label"
                 v-model="itunes"
                 data-itune
                 outlined
@@ -21,11 +20,11 @@
                  <v-card-text v-if="albums.length">
                  <v-layout row>
                  <v-flex xs12 class="text-xs-center">
-                 <v-btn fab outline color="white" class="decreses" small @click="ituneSubmit()">
+                 <v-btn fab outline samll id="desc" small @click="ituneSubmit()">
                  <v-icon>mdi-chevron-left</v-icon>
                  </v-btn>
-                 <span class="title white--text mx-4">{{ page }}</span>
-                 <v-btn fab outline color="white" class="increse" small @click="ituneSubmit(true)">
+                 <span class="title page white--text mx-4">{{ page }}</span>
+                 <v-btn fab outline samll id="inc" small @click="ituneSubmit(true)">
                  <v-icon>mdi-chevron-right</v-icon>
                  </v-btn>
                  </v-flex>
@@ -60,11 +59,10 @@
 import axios from 'axios'
 export default {
     data: () => ({
-        label:'Search Itunes',
         itunes:'',
         entity:'album',
         show:false,
-        page:0,
+        page:1,
         albums:[],
         message:'today date is' + new Date().toLocaleString()
     }),
